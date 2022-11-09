@@ -37,8 +37,9 @@ public class Evento
             if (DateTime.Now > value)
             {
                 throw new GestoreEventiException("inserire un evento in data superiore a quella odierna");
-                _data = value;
+               
             }
+            _data = value;
         }
     }
 
@@ -81,8 +82,8 @@ public class Evento
         {
             throw new GestoreEventiException("Non ci sono abbastanza posti diponibili per questo evento");
         }
-        if( DateTime.Now > Data)
-        {
+        if( DateTime.Now > Data) { 
+        
             throw new GestoreEventiException("questo evento si è concluso");
         }
         PostiPrenotati += posti;
