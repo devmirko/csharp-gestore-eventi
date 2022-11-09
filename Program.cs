@@ -11,11 +11,11 @@ Console.WriteLine("inserisci la data del tuo evento (gg/mm/yyyy)");
 string DataStringa = Console.ReadLine();
 DateTime data = DateTime.Parse(DataStringa);
 Console.WriteLine("inserisci la capienza massima");
-int capienza = Convert.ToInt32(Console.ReadLine());
+int totaleposti = Convert.ToInt32(Console.ReadLine());
 
 
 
-Evento evento = new Evento(nome, data, capienza);
+Evento evento = new Evento(nome, data, totaleposti);
 Prenota();
 
 
