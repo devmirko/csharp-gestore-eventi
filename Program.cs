@@ -1,6 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System.Runtime.ConstrainedExecution;
+using csharp_gestore_eventi.Exceptions;
+
 
 Console.WriteLine("Hello, World!");
 
+Console.WriteLine("inizia a creare il tuo evento");
+Console.WriteLine("inserisci il nome");
+string nome = Console.ReadLine();
+Console.WriteLine("inserisci la data del tuo evento");
+string DataStringa = Console.ReadLine();
+DateTime data = DateTime.Parse(DataStringa);
+Console.WriteLine("inserisci la capienza massima");
+int capienza = Convert.ToInt32(Console.ReadLine());
+
+
+
+Evento evento = new Evento(nome, data, capienza);
+
+
+
+//prenota posti
+int prenota = Convert.ToInt32(Console.ReadLine());
+evento.PrenotaPosti(prenota);
 
