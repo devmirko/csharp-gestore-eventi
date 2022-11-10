@@ -11,7 +11,7 @@ string nomeProgramma = Console.ReadLine();
 Console.WriteLine("inserisci il numero di eventi da inserire");
 int NumeroEventi = Convert.ToInt32(Console.ReadLine());
 ProgrammaEventi programma = new ProgrammaEventi(nomeProgramma);
-for (int i = 1; i < NumeroEventi; i++)
+for (int i = 0; i < NumeroEventi; i++)
 {
     NewEvento(i);
     
@@ -33,7 +33,7 @@ do
     switch (sceltaUtente)
     {
         case "1":
-            Console.WriteLine("il numero di eventi presenti nel tuo programma:" + programma.Titolo + "e" + programma.ContaEventi());
+            Console.WriteLine("il numero di eventi presenti nel tuo programma:" + programma.Titolo + ":" + programma.ContaEventi());
             break;
         case "2":
             Console.WriteLine(programma.ToString());
