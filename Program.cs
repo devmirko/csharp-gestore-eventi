@@ -26,7 +26,7 @@ using csharp_gestore_eventi.Exceptions;
         NewConferenza(i);
     } else
     {
-        Console.WriteLine("inserisci o evento o conferenza");
+        Console.WriteLine("inserisci(evento o conferenza)");
         i--;
     }
         
@@ -248,7 +248,7 @@ void NewConferenza(int numero)
     catch (GestoreEventiException e)
     {
         Console.WriteLine(e.Message);
-
+        
     }
 
 

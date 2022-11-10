@@ -82,10 +82,10 @@ public class ProgrammaEventi
 
     public override string ToString()
     {
-        string stampa = Titolo + "\n";
+        string stampa = Titolo + "\r\n";
         foreach (Evento evento in eventi)
         {
-            stampa = stampa + "" + evento.ToString() + "\n";
+            stampa = stampa + "-" + evento.ToString() + "\r\n";
         }
         return stampa;
     }
