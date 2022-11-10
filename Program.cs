@@ -2,20 +2,41 @@
 using csharp_gestore_eventi.Exceptions;
 
 
-Console.WriteLine("Hello, World!");
+    Console.WriteLine("Hello, World!");
 
-Console.WriteLine("inizia a creare il tuo evento");
-Console.WriteLine("inserisci il nome del tuo programma di eventi");
-string nomeProgramma = Console.ReadLine();
+    Console.WriteLine("inizia a creare il tuo evento");
+    Console.WriteLine("inserisci il nome del tuo programma di eventi");
+    string nomeProgramma = Console.ReadLine();
 
-Console.WriteLine("inserisci il numero di eventi da inserire");
-int NumeroEventi = Convert.ToInt32(Console.ReadLine());
-ProgrammaEventi programma = new ProgrammaEventi(nomeProgramma);
-for (int i = 1; i < NumeroEventi + 1; i++)
-{
-    NewEvento(i);
-    
-}
+    Console.WriteLine("inserisci il numero di eventi da inserire");
+    int NumeroEventi = Convert.ToInt32(Console.ReadLine());
+    ProgrammaEventi programma = new ProgrammaEventi(nomeProgramma);
+    for (int i = 1; i < NumeroEventi + 1; i++)
+    {
+
+    Console.WriteLine("Vuoi creare un evento o una conferenza");
+    string scelta = Console.ReadLine();
+
+    if (scelta == "evento")
+    {
+        NewEvento(i);
+
+    } else if ( scelta == "conferenza")
+    {
+        NewConferenza(i);
+    } else
+    {
+        Console.WriteLine("inserisci o evento o conferenza");
+        i--;
+    }
+        
+
+    }
+
+
+
+
+
 
 //menu per la prenotazione
 bool exit = true;
@@ -90,12 +111,25 @@ do
             }
             break;
         case "6":
-            Console.WriteLine("sei sicuro di voler eliminare la tua lista di eventi(si o no)");
-            string risposta = Console.ReadLine();
-            if(risposta == "si") {
-                programma.Elimina();
-            }
-            
+           
+   
+                Console.WriteLine("sei sicuro di voler eliminare la tua lista di eventi(si o no)");
+                string risposta = Console.ReadLine();
+                if (risposta == "si")
+                {
+                    programma.Elimina();
+                }
+                else if (risposta == "no")
+                {
+                    Console.WriteLine("hai scelto di non eliminare");
+                }
+
+               else {
+                Console.WriteLine("inserisci si o no");
+
+                }
+                
+
             break;
 
 
@@ -184,6 +218,39 @@ void EliminaPrenotazione(Evento evento)
 
 
     }
+
+
+}
+
+
+void NewConferenza(int numero)
+{
+    Console.WriteLine("inserisci il nome del tuo " + numero + "°Conferenza");
+    string nome = Console.ReadLine();
+    Console.WriteLine("inserisci la data della  tua conferenza (gg/mm/yyyy)");
+    string DataStringa = Console.ReadLine();
+    DateTime data = DateTime.Parse(DataStringa);
+    Console.WriteLine("inserisci la capienza massima");
+    int totaleposti = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("inserisci il nome del relatore");
+    string NomeRelatore = Console.ReadLine();
+    Console.WriteLine("inserisci il prezzo della conferenza");
+    double prezzo = Convert.ToDouble(Console.ReadLine());
+
+
+    try
+    {
+        Conferenze conferenza = new Conferenze(nome, data,totaleposti ,NomeRelatore, prezzo);
+        programma.AggiungiEvento(conferenza);
+
+
+    }
+    catch (GestoreEventiException e)
+    {
+        Console.WriteLine(e.Message);
+
+    }
+
 
 
 }

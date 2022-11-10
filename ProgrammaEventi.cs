@@ -93,7 +93,10 @@ public class ProgrammaEventi
     public void Elimina()
     {
         eventi.Clear();
+        Console.WriteLine("hai eliminato i tuoi eventi");
     }
+
+
 
 
 
