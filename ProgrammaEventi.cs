@@ -57,13 +57,13 @@ public class ProgrammaEventi
         return null;
     }
 
-    public static string  StampaEventi(List<Evento> eventi)
+    public static string  StampaEvento(List<Evento> eventi)
     {
         string stampa = "";
         foreach ( Evento evento in eventi)
         {
 
-            stampa = evento + "\n";
+            stampa = evento + "";
 
 
 
@@ -85,7 +85,7 @@ public class ProgrammaEventi
         string stampa = Titolo + "\n";
         foreach (Evento evento in eventi)
         {
-            stampa = stampa + "\t" + evento.ToString() + "\n";
+            stampa = stampa + "" + evento.ToString() + "\n";
         }
         return stampa;
     }

@@ -11,7 +11,7 @@ string nomeProgramma = Console.ReadLine();
 Console.WriteLine("inserisci il numero di eventi da inserire");
 int NumeroEventi = Convert.ToInt32(Console.ReadLine());
 ProgrammaEventi programma = new ProgrammaEventi(nomeProgramma);
-for (int i = 0; i < NumeroEventi; i++)
+for (int i = 1; i < NumeroEventi + 1; i++)
 {
     NewEvento(i);
     
@@ -45,7 +45,7 @@ do
                 string DataStringa = Console.ReadLine();
                 DateTime data = DateTime.Parse(DataStringa);
                 List<Evento> eventi = programma.CercaEventi(data);
-                Console.WriteLine(ProgrammaEventi.StampaEventi(eventi));
+                Console.WriteLine(ProgrammaEventi.StampaEvento(eventi));
             } catch (GestoreEventiException e)
             {
                 Console.WriteLine(e.Message);
