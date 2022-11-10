@@ -96,6 +96,41 @@ public class ProgrammaEventi
         Console.WriteLine("hai eliminato i tuoi eventi");
     }
 
+    public static void ReadCsv()
+    {
+        Console.WriteLine("inserisci il nome del tuo programma di eventi");
+        string nomeProgramma = Console.ReadLine();
+        ProgrammaEventi programma = new ProgrammaEventi(nomeProgramma);
+      
+        StreamReader stream = File.OpenText("C:\\Users\\Utente\\source\\repos\\CorsoNet\\esercitazione_1\\csharp-gestore-eventi\\ProgrammiEventi.csv");
+        while (!stream.EndOfStream)
+        {
+            string riga = stream.ReadLine();
+            string[] space = riga.Split(";");
+            if (space.Length == 6)
+            {
+                string titolo = space[0];
+                DateTime data = DateTime.Parse(space[1]);
+                int PostiMax = Convert.ToInt32(space[4]);
+                Evento evento = new Evento(titolo, data, PostiMax);
+                programma.AggiungiEvento(evento);
+                
+
+            }
+        }
+
+        stream.Close();
+        programma.StampaProgramma();
+
+    }
+
+    public void StampaProgramma()
+    {
+        Console.WriteLine();
+        Console.WriteLine(Titolo);
+        StampaEvento(eventi);
+    }
+
 
 
 

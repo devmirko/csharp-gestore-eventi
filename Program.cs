@@ -2,17 +2,27 @@
 using csharp_gestore_eventi.Exceptions;
 
 
-    Console.WriteLine("Hello, World!");
 
-    Console.WriteLine("inizia a creare il tuo evento");
-    Console.WriteLine("inserisci il nome del tuo programma di eventi");
-    string nomeProgramma = Console.ReadLine();
+Console.WriteLine("Hello, World!");
 
-    Console.WriteLine("inserisci il numero di eventi da inserire");
-    int NumeroEventi = Convert.ToInt32(Console.ReadLine());
-    ProgrammaEventi programma = new ProgrammaEventi(nomeProgramma);
-    for (int i = 1; i < NumeroEventi + 1; i++)
-    {
+Console.WriteLine("inizia a creare il tuo evento");
+Console.WriteLine("vuoi importarlo(si o no)");
+string importareScelta = Console.ReadLine();
+if (importareScelta == "si")
+{
+
+    ProgrammaEventi.ReadCsv();
+
+}
+
+Console.WriteLine("inserisci il nome del tuo programma di eventi");
+string nomeProgramma = Console.ReadLine();
+
+Console.WriteLine("inserisci il numero di eventi da inserire");
+int NumeroEventi = Convert.ToInt32(Console.ReadLine());
+ProgrammaEventi programma = new ProgrammaEventi(nomeProgramma);
+for (int i = 1; i < NumeroEventi + 1; i++)
+{
 
     Console.WriteLine("Vuoi creare un evento o una conferenza");
     string scelta = Console.ReadLine();
@@ -21,17 +31,19 @@ using csharp_gestore_eventi.Exceptions;
     {
         NewEvento(i);
 
-    } else if ( scelta == "conferenza")
+    }
+    else if (scelta == "conferenza")
     {
         NewConferenza(i);
-    } else
+    }
+    else
     {
         Console.WriteLine("inserisci(evento o conferenza)");
         i--;
     }
-        
 
-    }
+
+}
 
 
 
@@ -254,6 +266,8 @@ void NewConferenza(int numero)
 
 
 }
+
+ 
 
 
 
